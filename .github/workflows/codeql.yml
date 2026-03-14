@@ -54,10 +54,7 @@ jobs:
           build-mode: ${{ matrix.build-mode }}
 
       - name: Build Java Project
-        run: |
-          mvn clean package -f tools/deploy/module2/pom.xml
+        run: mvn clean package
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v4
-        with:
-          category: "/language:${{matrix.language}}"
